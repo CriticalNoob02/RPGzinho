@@ -1,7 +1,8 @@
 import random
-from Gerar_Nomes import GerarNome
+from Gerar_Nomes import GerarNome, Nome
+## varL == variaveis listas para as escolhas.
 
-###################################################################### Classe Pai (Base do Inimigo);
+###################################################################### Classe Pai (Base do Mundo / Quantidades / Nomes);
 
 class Mundo:
     def __init__(self):
@@ -18,7 +19,7 @@ class Mundo:
 
     def GerarMundo(self):
         ## Gerando Quantidade;
-        numReinos = random.randint(1,6)
+        numReinos = random.randint(3,6)
         numOceanos = random.randint(1,3)
         numLagos = random.randint(1,6)
         numVilas = random.randint(7,12)
@@ -80,7 +81,143 @@ class Mundo:
         print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
         print("")
 
-mundo = Mundo()
+###################################################################### Classes Filhos (Caracteristicas Gerais dos Ambientes);
+
+class Reinos(Mundo):
+    def __init__(self):
+        super().__init__()
+        self.tamanho = []
+        self.localização = []
+        self.ameaça = []
+        self.rei = []
+    
+    def GerarCaracteristicas(self):
+        for i in self.reinos:
+            ## Escolhendo;
+            tamanhoL = random.choices(["Pequeno","Médio","Grande","Gigante"])
+            localizaçãoL = random.choices(["Deserto","Oceano","Ártico","Floresta","Montanha"])
+            ameaçaL = random.choices(["Aliados","Mercador","Passivos","Ameaçadores","Rivais"])
+            nomeRei = Nome()
+            ## Transcrevendo;
+            tamanho =''.join(tamanhoL)
+            localização =''.join(localizaçãoL)
+            ameaça =''.join(ameaçaL)
+            ## Adicionando;
+            self.tamanho.append(f"{tamanho}")
+            self.localização.append(f"{localização}")
+            self.ameaça.append(f"{ameaça}")
+            self.rei.append(nomeRei)
+
+    def MostrarReinosGeral(self):
+        i = 0
+        for reinos in self.reinos:
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Reino Nº{i}")
+            print(f" Nome: {self.reinos[i]}")
+            print(f" Rei: {self.rei[i]}")
+            print(f" Tamanho: {self.tamanho[i]}")
+            print(f" Localização: {self.localização[i]}")
+            print(f" Relação: {self.ameaça[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+            i += 1
+        
+    def MostrarReino(self,i):
+        for reinos in self.reinos:
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Reino Nº{i}")
+            print(f" Nome: {self.reinos[i]}")
+            print(f" Rei: {self.rei[i]}")
+            print(f" Tamanho: {self.tamanho[i]}")
+            print(f" Localização: {self.localização[i]}")
+            print(f" Relação: {self.ameaça[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+
+class Vilas(Mundo):
+    def __init__(self):
+        super().__init__()
+        self.tamanhoV = []
+        self.localizaçãoV = []
+
+    def GerarCaracteristicasVila(self):
+        for i in self.vilas:
+            ## Escolhendo;
+            tamanhoL = random.choices(["Pequena","Média","Grande"])
+            localizaçãoL = random.choices(["Deserto","Oceano","Ártico","Floresta","Montanha","Pantano","Caverna","Ilha"])
+            ## Transcrevendo;
+            tamanho =''.join(tamanhoL)
+            localização =''.join(localizaçãoL)
+            ## Adicionando;
+            self.tamanhoV.append(tamanho)
+            self.localizaçãoV.append(localização)
+    
+    def MostrarVilasGeral(self):
+        i = 0
+        for vila in self.vilas:
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Vila Nº{i}")
+            print(f" Nome: {self.vilas[i]}")
+            print(f" Tamanho: {self.tamanhoV[i]}")
+            print(f" Localização: {self.localizaçãoV[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+            i += 1
+
+    def MostrarVila(self, i):
+        for vila in self.vilas:
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Vila Nº{i}")
+            print(f" Nome: {self.vilas[i]}")
+            print(f" Tamanho: {self.tamanhoV[i]}")
+            print(f" Localização: {self.localizaçãoV[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+
+class Florestas(Mundo):
+    def __init__(self):
+        super().__init__()
+        self.caracteristicasF = []
+    
+    def GerarCaracteristicasFlorestas(self):
+        for i in self.florestas:
+            ## Escolhendo;
+            caracteristicasL = random.choices(["Negra","Amaldiçoada","Abençoada","Densa","Tropical","Gélida","Oásis",])
+            ## Transcrevendo;
+            caracteristicas =''.join(caracteristicasL)
+            self.caracteristicasF.append(caracteristicas)
+
+    def MostrarFlorestasGeral(self):
+        i = 0
+        for floresta in self.florestas:
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Floresta Nº{i}")
+            print(f" Nome: {self.florestas[i]}")
+            print(f" Caracteristicas: {self.caracteristicasF[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+            i += 1
+
+    def MostrarFloresta(self,i):
+        for floresta in self.florestas:
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Floresta Nº{i}")
+            print(f" Nome: {self.florestas[i]}")
+            print(f" Caracteristicas: {self.caracteristicasF[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+            i += 1
+
+
+mundo = Florestas()
 
 mundo.GerarMundo()
 mundo.MostrarMundo()
+mundo.GerarCaracteristicasFlorestas()
+mundo.MostrarFlorestasGeral()
