@@ -59,7 +59,7 @@ class Mundo:
             nome = GerarNome()
             self.cavernas.append(f"Caverna de {nome}")
         for i in range(0,numMistérios):
-            self.mistérios.append(f"Mistério {i+1}")
+            self.mistérios.append(f"Mistério {i}")
 
     def MostrarMundo(self):
         print("")
@@ -124,7 +124,6 @@ class Reinos(Mundo):
             i += 1
         
     def MostrarReino(self,i):
-        for reinos in self.reinos:
             print("")
             print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
             print(f" Reino Nº{i}")
@@ -168,7 +167,6 @@ class Vilas(Mundo):
             i += 1
 
     def MostrarVila(self, i):
-        for vila in self.vilas:
             print("")
             print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
             print(f" Vila Nº{i}")
@@ -204,6 +202,77 @@ class Florestas(Mundo):
             i += 1
 
     def MostrarFloresta(self,i):
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Floresta Nº{i}")
+            print(f" Nome: {self.florestas[i]}")
+            print(f" Caracteristicas: {self.caracteristicasF[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+
+###################################################################### Classe Neta (Mundo Completo);
+
+class MundoCompleto(Reinos,Vilas,Florestas):
+    def __init__(self):
+        super().__init__()
+
+    def MostrarMundoInteiro(self):
+        print("")
+        print(f"Parabens, seu mundo foi Criado !!")
+        print("")
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+        print(f"Reinos;")
+        i = 0
+        for reinos in self.reinos:
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Reino Nº{i}")
+            print(f" Nome: {self.reinos[i]}")
+            print(f" Rei: {self.rei[i]}")
+            print(f" Tamanho: {self.tamanho[i]}")
+            print(f" Localização: {self.localização[i]}")
+            print(f" Relação: {self.ameaça[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+            i += 1
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+        print(f"Oceanos;")
+        i = 0
+        for oceanos in self.oceanos:
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f"Oceano Nº{i}")
+            print(f"Nome: {self.oceanos[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+            i += 1
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+        print(f"Lagos;")
+        i = 0
+        for lago in self.lagos:
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f"Lago Nº{i}")
+            print(f"Nome: {self.lagos[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+            i += 1
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+        print(f"Vilas;")
+        i = 0
+        for vila in self.vilas:
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Vila Nº{i}")
+            print(f" Nome: {self.vilas[i]}")
+            print(f" Tamanho: {self.tamanhoV[i]}")
+            print(f" Localização: {self.localizaçãoV[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+            i += 1
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+        print(f"Florestas;")
+        i = 0
         for floresta in self.florestas:
             print("")
             print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
@@ -213,11 +282,172 @@ class Florestas(Mundo):
             print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
             print("")
             i += 1
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+        print(f"Montanhas;")
+        i = 0
+        for montanha in self.montanhas:
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Montanha Nº{i}")
+            print(f" Nome: {self.montanhas[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+            i += 1
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+        print(f"Descartes;")
+        i = 0
+        for descarte in self.descartes:
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Lixão Nº{i}")
+            print(f" Nome: {self.descartes[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+            i += 1
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+        print(f"Minas;")
+        i = 0
+        for mina in self.minas:
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Mina Nº{i}")
+            print(f" Nome: {self.minas[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+            i += 1
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+        print(f"Cavernas;")
+        i = 0
+        for caverna in self.cavernas:
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Caverna Nº{i}")
+            print(f" Nome: {self.cavernas[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+            i += 1
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+        print(f"Mistérios;")
+        i = 0
+        for mistério in self.mistérios:
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Mistério Nº{i}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+            i += 1
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
 
+    def MostrarOceano(self,i):
+        print("")
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+        print(f"Oceano Nº{i}")
+        print(f"Nome: {self.oceanos[i]}")
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+        print("")
+    
+    def MostrarLago(self,i):
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f"Lago Nº{i}")
+            print(f"Nome: {self.lagos[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
 
-mundo = Florestas()
+    def MostrarMontanha(self,i):
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Montanha Nº{i}")
+            print(f" Nome: {self.montanhas[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
 
-mundo.GerarMundo()
-mundo.MostrarMundo()
-mundo.GerarCaracteristicasFlorestas()
-mundo.MostrarFlorestasGeral()
+    def MostrarDescarte(self,i):
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Lixão Nº{i}")
+            print(f" Nome: {self.descartes[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+    
+    def MostrarMina(self,i):
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Mina Nº{i}")
+            print(f" Nome: {self.minas[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+
+    def MostrarCaverna(self,i):
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Caverna Nº{i}")
+            print(f" Nome: {self.cavernas[i]}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+    
+    def MostrarMisterio(self,i):
+            print("")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print(f" Mistério Nº{i}")
+            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("")
+
+###################################################################### Funções;
+
+def CriarNovoMundo():
+    mundo1 = MundoCompleto()
+    mundo1.GerarMundo()
+    mundo1.GerarCaracteristicas()
+    mundo1.GerarCaracteristicasVila()
+    mundo1.GerarCaracteristicasFlorestas()
+    mundo1.MostrarMundoInteiro()
+    return mundo1
+
+def MostrarEspecífico():
+    global mundo1
+    while True:
+        print("")
+        print("1- Reinos")
+        print("2- Oceanos")
+        print("3- Lagos")
+        print("4- Vilas")
+        print("5- Florestas")
+        print("6- Montanhas")
+        print("7- Descartes")
+        print("8- Minas")
+        print("9- Cavernas")
+        print("10- Mistérios")
+        print("")
+        visualizar = int(input("Digite o Ambiente que deseja visualizar: "))
+        indice = int(input("Qual o indice do Ambiente que deseja visualizar: "))
+
+        match visualizar:
+            case 1:
+                mundo1.MostrarReino(indice)
+            case 2:
+                mundo1.MostrarOceano(indice)
+            case 3:
+                mundo1.MostrarLago(indice)
+            case 4:
+                mundo1.MostrarVila(indice)
+            case 5:
+                mundo1.MostrarFloresta(indice)
+            case 6:
+                mundo1.MostrarMontanha(indice)
+            case 7:
+                mundo1.MostrarDescarte(indice)
+            case 8:
+                mundo1.MostrarMina(indice)
+            case 9:
+                mundo1.MostrarCaverna(indice)
+            case 10:
+                mundo1.MostrarMisterio(indice)
+        confirmação = int(input("Deseja visualizar outro Ambiente ? (S= 1 / N= 2) "))
+
+        if confirmação == 2:
+            break
+
+mundo1 = CriarNovoMundo()
+MostrarEspecífico()
+
