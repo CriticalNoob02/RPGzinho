@@ -1,4 +1,6 @@
 import random
+from Equipamentos import Equipamento, GerarEquipamento, Equipando
+
 ###################################################################### Classes Primárias:
 
 class Personagem:
@@ -96,7 +98,7 @@ class Classes(Personagem):
     
 ###################################################################### Classes Netas;
 
-class Jogador(Raça, Classes):
+class Jogador(Raça, Classes,Equipamento):
     def __init__(self, Nome):
         super().__init__()
         self.nome = Nome
@@ -161,3 +163,11 @@ def CriaçãoPersonagem():
 
     d4 = random.randint(1,4)
     return d4
+
+Jogador1 = CriaçãoPersonagem()
+equipamento = GerarEquipamento()
+print(equipamento)
+Equipando(equipamento,Jogador1)
+
+Jogador1.MostrarStatus()
+Jogador1.MostrarEquipamento()

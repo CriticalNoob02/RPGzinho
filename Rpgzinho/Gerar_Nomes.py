@@ -6,7 +6,7 @@ def GerarNome():
     consoantes = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","x","y","w","z",""]
     nomeL = []
     nome = ""
-    silabas = random.randint(1,4)
+    silabas = random.randint(1,5)
 
     for i in range(0,silabas):
         nomeL += random.choices(consoantes)
